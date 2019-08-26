@@ -5,7 +5,14 @@
 ## memory. Since it was asked again to determine the invertible of the same matrix
 ## the result will be retrieved from cache and not calculated at all.
 
-## Write a short comment describing this function   
+## This function receives a invertible square matrix (this is very important) and
+## return a list of function that can be used in the new object returned.
+## get -> read the created matrix
+## set -> substitute the content of previous matrix and set this inverser to NULL, there is
+##        the inverse must be calculated.
+## getinv -> call the function cachesolve
+## setinv -> used by cachesolve
+
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -22,7 +29,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function will receive neither the square matrix passed to makeCacheMatrix or seted
+## by set functio.
+## case, the inverse is NULL, the inverse will be calculate and cached. If inverse is already
+## cached, this cached value will be returned instead of a new calculated one.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
